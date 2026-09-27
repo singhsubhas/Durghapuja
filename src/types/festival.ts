@@ -43,8 +43,8 @@ export interface Ritual {
 export interface DarshanPass {
   id: string;
   passCode: string;
-  devoteeName: string;
-  contact: string;
+  devoteeName?: string;
+  contact?: string;
   date: string;
   zone: string;
   passType: 'VIP Fast-Track' | 'Senior Citizen Sakha' | 'General Darshan' | 'Dhunuchi Arena' | 'Mahashtami Pushpanjali';

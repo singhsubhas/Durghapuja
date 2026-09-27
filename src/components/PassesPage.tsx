@@ -17,8 +17,6 @@ export const PassesPage: React.FC<PassesPageProps> = ({
   const [activeTab, setActiveTab] = useState<'generate' | 'my-passes' | 'scanner'>('generate');
 
   // Form State
-  const [devoteeName, setDevoteeName] = useState('');
-  const [contact, setContact] = useState('+91 98301 23456');
   const [passType, setPassType] = useState<DarshanPass['passType']>('VIP Fast-Track');
   const [zone, setZone] = useState('South Kolkata');
   const [pandalVenue, setPandalVenue] = useState('All South Heritage Pandals');
@@ -30,8 +28,8 @@ export const PassesPage: React.FC<PassesPageProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onCreatePass({
-      devoteeName: devoteeName.trim() || 'Devotee Pass Holder',
-      contact,
+      devoteeName: '',
+      contact: '',
       passType,
       zone,
       pandalVenue,
@@ -189,33 +187,18 @@ export const PassesPage: React.FC<PassesPageProps> = ({
               ))}
             </div>
 
-            {/* Devotee Details */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
-              <div>
-                <label className="text-xs font-bold text-[#1f1928] block mb-1">
-                  Primary Mobile / WhatsApp
-                </label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="+91 98301 23456"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  className="w-full h-11 px-3.5 rounded-xl border border-[#e4beb9]/60 text-xs text-[#1f1928] focus:outline-none focus:ring-2 focus:ring-[#91000a]"
-                />
+            {/* Direct Digital Entry Notice */}
+            <div className="p-3.5 rounded-2xl bg-[#faf0ff] border border-[#e4beb9]/50 flex items-center gap-3 mt-1">
+              <div className="w-9 h-9 rounded-xl bg-[#91000a]/10 flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-[#91000a] text-[20px]">
+                  verified_user
+                </span>
               </div>
-
               <div>
-                <label className="text-xs font-bold text-[#1f1928] block mb-1">
-                  Pass Reference / Group Label (Optional)
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Family Pass / Group"
-                  value={devoteeName}
-                  onChange={(e) => setDevoteeName(e.target.value)}
-                  className="w-full h-11 px-3.5 rounded-xl border border-[#e4beb9]/60 text-xs text-[#1f1928] focus:outline-none focus:ring-2 focus:ring-[#91000a]"
-                />
+                <p className="text-xs font-bold text-[#1f1928]">Instant Fast-Track Digital Pass</p>
+                <p className="text-[11px] text-[#5b403d] leading-snug">
+                  Direct issuance with encrypted QR pass. No phone number or personal credentials required.
+                </p>
               </div>
             </div>
 
@@ -375,11 +358,10 @@ export const PassesPage: React.FC<PassesPageProps> = ({
                         <span className="px-2.5 py-0.5 rounded-full bg-[#faf0ff] text-[#91000a] text-xs font-bold font-mono">
                           {pass.passCode}
                         </span>
+                        <span className="px-2 py-0.5 rounded-full bg-[#eefbe9] text-[#1b5e20] text-[10px] font-bold">
+                          Direct Entry
+                        </span>
                       </div>
-                      <p className="text-xs text-[#5b403d] mt-1.5 flex items-center gap-1 font-medium">
-                        <span className="material-symbols-outlined text-[14px] text-[#91000a]">phone</span>
-                        <span>{pass.contact}</span>
-                      </p>
 
                       <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
                         <div>

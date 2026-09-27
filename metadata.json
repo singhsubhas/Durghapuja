@@ -1,0 +1,6 @@
+{
+  "name": "Utsav Durgotsav - Durga Puja Companion",
+  "description": "Kolkata & Global Durga Puja festive guide with live pandal crowd radar, VIP passes, ritual calendar, bhog ordering, and AI Sahayak help chatbot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
